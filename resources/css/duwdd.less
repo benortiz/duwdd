@@ -1,12 +1,25 @@
 @primary: #444444;
 @secondary: #f1f1f1;
 @highlight: #BADA55;
-@page: 960px;
+@page: 70%;
 
 body {
 	width: 100%;
 	height: 100%;
 	color: @primary;
+	font-size: 18px;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+h2 {
+	font-size:1.7em;
+}
+
+h3 {
+	font-size: 1.5em;
 }
 
 .page-mixin {
@@ -43,9 +56,11 @@ body {
 	}
 }
 
-#title, #observations, #design, #howto {
+#title, #about, #observations, #design, #howto {
 	width: 100%;
-	height: 1500px;
+	height: 100%;
+	min-height: 1500px;
+	padding-bottom: 300px;
 }
 
 #title {
@@ -58,10 +73,15 @@ body {
 	}
 }
 
-#observations {
+#about {
 	.page-mixin;
 	background-color: @primary;
 	color:@secondary;
+}
+
+#observations {
+	.page-mixin;
+	background-color: @secondary;
 	.wide_img {
 		width:100%;
 		margin-top: 30px;
@@ -71,11 +91,14 @@ body {
 
 #design {
 	.page-mixin;
-	background-color: @secondary;
+	background-color: @primary;
+	color:@secondary;
+	img {
+		width:100%;
+	}
 }
 
 #howto {
 	.page-mixin;
-	background-color: @primary;
-	color: @secondary;
+	background-color: @secondary;
 }
