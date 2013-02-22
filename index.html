@@ -78,6 +78,96 @@ $(document).ready(function() {
 	<div id="howto">
 		<div>
 			<h2>How To Make Your Own DUWDD</h2>
+            <h3 id="materials">Materials</h2>
+
+            <h4 id="hardware">Hardware</h4>
+
+            <ul>
+            <li>Arduino Uno</li>
+            <li>Nine LEDs</li>
+            <li>One Light Sensor</li>
+            <li>One shift register</li>
+            <li>Wire</li>
+            <li>Electrical tape</li>
+            <li>A map</li>
+            </ul>
+
+            <h4 id="construction">Construction</h4>
+
+            <ul>
+            <li>Foamcore
+            <ul>
+            <li>This is for the frame, so cardboard, plastic, wood, even paper can work. It just needs to be strong enough to support your dishwashing soap and resistant to water.</li>
+            </ul></li>
+            <li>Adhesive</li>
+            <li>Hot glue gun is a good choice. Rubber cement, duct tape also work</li>
+            </ul>
+
+            <h4 id="tools">Tools</h4>
+
+            <ul>
+            <li>Exacto knife
+            <ul>
+            <li>Anything that can cut through your construction materials will work (scissors, razor), the Exacto knife is recommended because the quality of your DUWDD will depend on the precision of your cuts.</li>
+            </ul></li>
+            <li>A computer to program the arduino</li>
+            </ul>
+
+            <h3 id="code">Code</h3>
+
+            <pre><code>#define COVER 25
+
+            int datapin = 2;
+            int clockpin = 3;
+            int latchpin = 4;
+            int ledPin = 7;
+
+            byte data = 0;
+            int lightLevel, high = 0, low = 1023;
+            const int sensorPin = 0;
+
+            void setup()
+            {
+              pinMode(datapin, OUTPUT);
+              pinMode(clockpin, OUTPUT);  
+              pinMode(latchpin, OUTPUT);
+              pinMode(ledPin, OUTPUT);
+
+            }
+            void loop()
+            {
+              lightLevel = analogRead(sensorPin);
+              if (lightLevel &lt; COVER){
+                digitalWrite(ledPin, LOW);
+                delay(10);
+              }
+              else {
+                randomLED();    // Blink random LEDs
+                digitalWrite(ledPin, HIGH);
+              }
+
+            }
+
+            void shiftWrite(int desiredPin, boolean desiredState)
+            {
+               bitWrite(data,desiredPin,desiredState);
+              shiftOut(datapin, clockpin, MSBFIRST, data);
+              digitalWrite(latchpin, HIGH);
+              digitalWrite(latchpin, LOW);
+            }
+
+            void randomLED()
+            {
+              int index;
+              int delayTime = random(2000); // time (milliseconds) to pause between LEDs
+
+              index = random(8);    // pick a random number between 0 and 7
+              shiftWrite(index, HIGH);    // turn LED on
+              delay(delayTime);      // pause to slow down the sequence
+              shiftWrite(index, LOW);    // turn LED off
+            }
+            </code></pre>
+
 		</div>
 	</div>
 </body>
