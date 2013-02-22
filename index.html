@@ -7,42 +7,6 @@
 	<link rel="icon" href="resources/img/favicon.ico.png">
 	<script type="text/javascript" src="resources/js/less-1.3.3.min.js"></script>
 	<script type="text/javascript" src="resources/js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" scr="resources/js/duwdd.js"></script>
-	<script type="text/javascript">
-$(document).ready(function() {
-	function filterPath(string) {
- 		return string
-		.replace(/^\//,'')
-		.replace(/(index|default).[a-zA-Z]{3,4}$/,'')
-		.replace(/\/$/,'');
-	}
-	$('a[href*=#]').each(function() {
-		if ( filterPath(location.pathname) == filterPath(this.pathname)
- 			&& location.hostname == this.hostname
- 			&& this.hash.replace(/#/,'') ) {
- 				var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
- 				var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
-      if ($target) {
-        var targetOffset = $target.offset().top;
-        $(this).click(function() {
-        $('html, body').animate({scrollTop: targetOffset}, 1000);
-        var d = document.createElement("div");
-        d.style.height = "101%";
-        d.style.overflow = "hidden";
-        document.body.appendChild(d);
-        window.scrollTo(0,scrollToM);
-        setTimeout(function() {
-        d.parentNode.removeChild(d);
-      }, 10);
-        return false;
-      });
-    }
-  }
-  });
-});
-/*! Smooth Scroll - v1.4.5 - 2012-07-22
-* Copyright (c) 2012 Karl Swedberg; Licensed MIT, GPL */
-	</script>
 </head>
 <body>
 	<div id="navigation">
@@ -52,7 +16,7 @@ $(document).ready(function() {
 			<a href="#observations">Observations</a>
 			<a href="#design">Design Process</a>
 			<a href="#howto">How-to</a>
-      <a href="#video">Video</a>
+      		<a href="#demo">Demo</a>
 		</div>
 	</div>
 	<div id="title">
@@ -65,14 +29,14 @@ $(document).ready(function() {
 		<div>
 			<h2>The DUWDDs</h2>
 			<div class="third_div"><img src="resources/img/ben.jpg" class="third_img" /><p>Benjamin is a third-year ISF major at UC Berkeley. He is interested in society, technology, and design. He is skilled at Front-end development and scrambling eggs.</p></div>
-			<div class="third_div"><img src="resources/img/aatash.jpg" class="third_img" /><p>Aatash is a third-year student studying EECS at UC Berkeley. He is really interested in education technology, and is skilled at programming, design, videography, and alley-oops.</p></div>
+			<div class="third_div"><img src="resources/img/aatash.jpg" class="third_img" /><p>Aatash is a third-year student studying EECS at UC Berkeley. He is really interested in education technology, and is skilled at programming, design, demography, and alley-oops.</p></div>
 			<div class="third_div"><img src="resources/img/jason.png" class="third_img" /><p>Jason majored in English and Arts at UC Berkeley. He is mildly interested in robots. He is skilled at programming and green screens.</p></div>
 		</div>	
 	</div>
 	<div id="observations">
 		<div>
 			<h2>Observations</h2>
-			<p>No one really enjoys doing the dishes. In the kitchen of an apartment full of college students, it's even worse. In Aatash's apartment, dishes would pile up really quickly. Especially when the semester kicked in, dishes seemed to pile up as quickly as the homework did. Roommates would pass by the sink full of dishes, but be too busy (read: lazy) to actually clean them. And when it came to eat, they would eventually end up using disposable dishware instead!</p>
+			<p>No one really enjoys doing the dishes. In the kitchen of an apartment full of college students, it's even worse. In Aatash's apartment, dishes would pile up really quickly. Especially when the semester kicked in, dishes seemed to pile up as quickly as the homework did. Roommates would pass by the sink full of dishes, but would be too busy (read: lazy) to actually clean them. And when it was time to eat, they would end up using disposable dishware instead!</p>
 			<img src="resources/img/kitchen_wide.jpg" class="wide_img"/>
 			<p>We realized we could utilize the empty white wall right above the sink. (This is where our map would go.)</p>
 			<h3>Our Key Insights</h3>
@@ -189,7 +153,7 @@ $(document).ready(function() {
             <h3 id="step-by-step">Step-by-step</h3>
 
             <ol>
-            <li>Wire the arduino, shift register, LED’s, and photosensor according to these schematics (use extra long wire for the 8 LED’s attached to the shift register):
+            <li>Wire the arduino, shift register, LED's, and photosensor according to these schematics (use extra long wire for the 8 LED's attached to the shift register):
             <img src="resources/img/duwdd_schematic.jpg"></li>
             <li>Trace, cut, and fold your foam core according to the following pattern:
             <img src="resources/img/duwdd_paper.png"></li>
@@ -203,11 +167,14 @@ $(document).ready(function() {
 
 		</div>
 	</div>
-  <div id="video">
+  <div id="demo">
     <div>
-      <h2>Video</h2>
+      <h2>Demo</h2>
       <iframe width="960" height="540" src="http://www.youtube.com/embed/RmBsDkhJmIg" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
+
+<script type="text/javascript" src="resources/js/duwdd.js"></script>
+
 </body>
 </head>
