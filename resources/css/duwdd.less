@@ -1,7 +1,7 @@
 @primary: #444444;
 @secondary: #f1f1f1;
 @highlight: #BADA55;
-@page: 70%;
+@page: 960px;
 
 body {
 	width: 100%;
@@ -68,9 +68,15 @@ h3 {
 	.page-mixin;
 	background-color: @secondary;
 	img {
-		width: 80%;
+		width: 100%;
+	}
+	.caption {
+		width:80%;
 		margin: 0 auto;
-		display:block;
+		p {
+			font-size:.7em;
+			text-align: right;
+		}
 	}
 }
 
