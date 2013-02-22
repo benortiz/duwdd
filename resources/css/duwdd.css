@@ -146,14 +146,14 @@ h3 {
 #howto li {
   margin-bottom: 15px;
 }
-#demo {
+#video {
   padding-top: 90px;
   background-color: #444444;
   color: #f1f1f1;
   max-height: 1000px;
   padding-bottom: 30px;
 }
-#demo > div {
+#video > div {
   width: 960px;
   margin: 0 auto;
 }
